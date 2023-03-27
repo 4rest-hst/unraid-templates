@@ -14,7 +14,6 @@
     SSL certificates are generated automatically and stored in certs/ folder in Storage as invoiceninja.crt and invoiceninja.key. Feel free to overwrite this files with others, if you use LetsEncrypt for example.&#xD;
     When migrating for v4 to v5 please follow this tutorial: https://github.com/kiwimato/invoiceninja_v5#upgrade-from-v4-to-v5</Overview>
   <Category>Productivity: Tools:Utilities</Category>
-  <WebUI>http://[IP]:[PORT:82/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/kiwimato/unraid-templates/master/invoiceninja-v5.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/invoiceninja.png</Icon>
   <ExtraParams/>
@@ -41,8 +40,6 @@
   <Config Name="MAIL_FROM_NAME" Target="MAIL_FROM_NAME" Default="Invoice Department" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">company-name</Config>
   <Config Name="MAIL_PASSWORD" Target="MAIL_PASSWORD" Default="SUPERSECRETEMAILPASSWORD" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="true">emailsecret</Config>
   <Config Name="MEMORY_LIMIT" Target="MEMORY_LIMIT" Default="256M" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">256M</Config>
-  <Config Name="HTTP Port" Target="80" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5058</Config>
-  <Config Name="HTTPS Port" Target="443" Default="8443" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5059</Config>
   <Config Name="Require HTTPS" Target="REQUIRE_HTTPS" Default="false" Mode="{3}" Description="Whether to force redirect http to https" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
   <Config Name="SSL_HOSTNAME" Target="SSL_HOSTNAME" Default="tower" Mode="{3}" Description="Hostname to be used as SSL CN" Type="Variable" Display="always" Required="false" Mask="false">ninja.yourdomain.com</Config>
   <Config Name="Storage" Target="/var/www/app/storage" Default="/mnt/user/appdata/invoiceninjav5/storage" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/invoiceninja-Official/storage</Config>
