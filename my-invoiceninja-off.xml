@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>invoiceninja-Official</Name>
+  <Repository>invoiceninja/invoiceninja:latest</Repository>
+  <Registry>https://hub.docker.com/r/invoiceninja/invoiceninja</Registry>
+  <Network>proxylan</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://www.invoiceninja.com/</Project>
+  <Overview>Invoice Ninja v5: an open-source invoicing and time-tracking app built with Laravel https://www.invoiceninja.com.&#xD;
+    This container requires a separate MySQL running container and the credentials passed via DB_* variables below.&#xD;
+    SSL certificates are generated automatically and stored in certs/ folder in Storage as invoiceninja.crt and invoiceninja.key. Feel free to overwrite this files with others, if you use LetsEncrypt for example.&#xD;
+    When migrating for v4 to v5 please follow this tutorial: https://github.com/kiwimato/invoiceninja_v5#upgrade-from-v4-to-v5</Overview>
+  <Category>Productivity: Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:82/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/kiwimato/unraid-templates/master/invoiceninja-v5.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/selfhosters/unRAID-CA-templates/master/templates/img/invoiceninja.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset>1,2,13,14</CPUset>
+  <DateInstalled>1675514343</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Database Host" Target="DB_HOST" Default="unraidIP" Mode="{3}" Description="" Type="Variable" Display="always" Required="true" Mask="false">mariadb</Config>
+  <Config Name="Database port" Target="DB_PORT" Default="3306" Mode="{3}" Description="" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
+  <Config Name="Database Name" Target="DB_DATABASE" Default="ninjav5" Mode="{3}" Description="" Type="Variable" Display="always" Required="true" Mask="false">ninja</Config>
+  <Config Name="Database username" Target="DB_USERNAME" Default="ninjav5" Mode="{3}" Description="" Type="Variable" Display="always" Required="true" Mask="false">ninja</Config>
+  <Config Name="Database Password" Target="DB_PASSWORD" Default="ninja" Mode="{3}" Description="" Type="Variable" Display="always" Required="true" Mask="true">verysecret</Config>
+  <Config Name="APP_URL" Target="APP_URL" Default="https://unraidIP:port" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">https://ninja.yourdomain.com</Config>
+  <Config Name="IN_USER_EMAIL" Target="IN_USER_EMAIL" Default="" Mode="{3}" Description="Initial user email" Type="Variable" Display="always" Required="true" Mask="false">xyz@gmail.com</Config>
+  <Config Name="IN_PASSWORD" Target="IN_PASSWORD" Default="" Mode="{3}" Description="Initial user password" Type="Variable" Display="always" Required="true" Mask="true">anothersecret</Config>
+  <Config Name="MAIL_MAILER" Target="MAIL_MAILER" Default="log" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">smtp</Config>
+  <Config Name="MAIL_PORT" Target="MAIL_PORT" Default="587" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">587</Config>
+  <Config Name="MAIL_ENCRYPTION" Target="MAIL_ENCRYPTION" Default="tls" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">tls</Config>
+  <Config Name="MAIL_HOST" Target="MAIL_HOST" Default="smtp.example.com" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">smtp.gmail.com</Config>
+  <Config Name="MAIL_USERNAME" Target="MAIL_USERNAME" Default="null" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">abc@gmail.com</Config>
+  <Config Name="MAIL_FROM_ADDRESS" Target="MAIL_FROM_ADDRESS" Default="null" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">invoice@ninja.yourdomain.com</Config>
+  <Config Name="MAIL_FROM_NAME" Target="MAIL_FROM_NAME" Default="Invoice Department" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">company-name</Config>
+  <Config Name="MAIL_PASSWORD" Target="MAIL_PASSWORD" Default="SUPERSECRETEMAILPASSWORD" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="true">emailsecret</Config>
+  <Config Name="MEMORY_LIMIT" Target="MEMORY_LIMIT" Default="256M" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">256M</Config>
+  <Config Name="HTTP Port" Target="80" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5058</Config>
+  <Config Name="HTTPS Port" Target="443" Default="8443" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">5059</Config>
+  <Config Name="Require HTTPS" Target="REQUIRE_HTTPS" Default="false" Mode="{3}" Description="Whether to force redirect http to https" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="SSL_HOSTNAME" Target="SSL_HOSTNAME" Default="tower" Mode="{3}" Description="Hostname to be used as SSL CN" Type="Variable" Display="always" Required="false" Mask="false">ninja.yourdomain.com</Config>
+  <Config Name="Storage" Target="/var/www/app/storage" Default="/mnt/user/appdata/invoiceninjav5/storage" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/invoiceninja-Official/storage</Config>
+  <Config Name="public" Target="/var/www/app/public" Default="/mnt/user/appdata/invoiceninjav5/public" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/invoiceninja-Official/public</Config>
+  <Config Name="APP_KEY" Target="APP_KEY" Default="geheim" Mode="" Description="php artisan key:generate --show" Type="Variable" Display="always" Required="false" Mask="false">base64:yxcsdfndljkanflkdsanf</Config>
+  <Config Name="APP_CIPHER" Target="APP_CIPHER" Default="AES-256-CBC" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">AES-256-CBC</Config>
+  <Config Name="APP_ENV" Target="APP_ENV" Default="production" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">production</Config>
+  <Config Name="Debug Mode" Target="APP_DEBUG" Default="0" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+  <Config Name="SNAPPDF_EXECUTABLE_PATH" Target="SNAPPDF_EXECUTABLE_PATH" Default="/usr/bin/chromium-browser" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">/usr/bin/chromium-browser</Config>
+  <Config Name="PHANTOMJS_PDF_GENERATION" Target="PHANTOMJS_PDF_GENERATION" Default="false" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="QUEUE_CONNECTION" Target="QUEUE_CONNECTION" Default="database" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">database</Config>
+</Container>
